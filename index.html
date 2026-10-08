@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MEDIÆ — La médecine de demain</title>
+
+    <meta name="description"
+          content="Les nouvelles technologies transforment la médecine. Découvrez deux innovations médicales et leur impact sur l'être humain.">
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            background: #f4f7f8;
+            color: #142426;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --navy: #0b2024;
+            --dark: #102f34;
+            --teal: #1b7f80;
+            --cyan: #61d4d1;
+            --cream: #f4f7f8;
+            --white: #ffffff;
+            --grey: #66777a;
+            --light: #e7eeee;
+            --positive: #1b806b;
+            --negative: #b45454;
+            --border: rgba(20, 36, 38, 0.10);
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background: rgba(11, 32, 36, 0.92);
+            backdrop-filter: blur(14px);
+
+            color: white;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--cyan);
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(11, 32, 36, 0.96),
+                    rgba(16, 62, 66, 0.82)
+                );
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+
+            padding: 130px 7% 80px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border: 1px solid rgba(97, 212, 209, 0.2);
+            border-radius: 50%;
+
+            right: -150px;
+            top: 100px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.2rem, 7vw, 7rem);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            color: var(--cyan);
+        }
+
+        .hero p {
+            max-width: 680px;
+            font-size: 1.15rem;
+            color: #d3e2e3;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding: 14px 24px;
+
+            border: 1px solid var(--cyan);
+            border-radius: 50px;
+
+            color: var(--cyan);
+
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: var(--cyan);
+            color: var(--navy);
+        }
+
+        /* =========================================================
+           GENERAL SECTIONS
+        ========================================================= */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-label {
+            color: var(--teal);
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.05;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .section-intro {
+            max-width: 720px;
+            color: var(--grey);
+            font-size: 1.05rem;
+            margin-bottom: 50px;
+        }
+
+        /* =========================================================
+           INTRO / CONTEXT
+        ========================================================= */
+
+        .context {
+            background: white;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .context-text p {
+            margin-bottom: 18px;
+            color: #536466;
+        }
+
+        .quote {
+            border-left: 4px solid var(--teal);
+            padding: 20px 25px;
+            background: #f0f7f7;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        /* =========================================================
+           INNOVATION CARDS
+        ========================================================= */
+
+        .innovation {
+            background: var(--cream);
+        }
+
+        .innovation-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            margin-bottom: 70px;
+            box-shadow: 0 20px 60px rgba(11, 32, 36, 0.08);
+        }
+
+        .innovation-image {
+            min-height: 380px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #dceaea;
+
+            color: #496062;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /*
+        ============================================================
+        IMAGE SYNTAX
+
+        Replace the placeholder above with:
+
+        <img src="images/robot-chirurgical.jpg"
+             alt="Robot chirurgical utilisé pendant une opération">
+
+        ============================================================
+        */
+
+        .innovation-content {
+            padding: 45px;
+        }
+
+        .number {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--teal);
+            letter-spacing: 2px;
+        }
+
+        .innovation-content h3 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin: 8px 0 20px;
+        }
+
+        .innovation-content > p {
+            max-width: 800px;
+            color: var(--grey);
+            margin-bottom: 35px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .info-box {
+            background: #f2f6f6;
+            padding: 22px;
+            border-radius: 15px;
+        }
+
+        .info-box strong {
+            display: block;
+            color: var(--dark);
+            margin-bottom: 7px;
+        }
+
+        .info-box span {
+            color: var(--grey);
+            font-size: 0.9rem;
+        }
+
+        /* =========================================================
+           IMPACT
+        ========================================================= */
+
+        .impact-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .impact {
+            padding: 28px;
+            border-radius: 20px;
+        }
+
+        .impact.positive {
+            background: #e8f5f1;
+            border: 1px solid #c9e8df;
+        }
+
+        .impact.negative {
+            background: #f8eeee;
+            border: 1px solid #ecd3d3;
+        }
+
+        .impact h4 {
+            margin-bottom: 15px;
+        }
+
+        .impact ul {
+            list-style: none;
+        }
+
+        .impact li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #536466;
+        }
+
+        .positive li::before {
+            content: "+";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: var(--positive);
+        }
+
+        .negative li::before {
+            content: "−";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: var(--negative);
+        }
+
+        /* =========================================================
+           AI SECTION
+        ========================================================= */
+
+        .ai-section {
+            background: var(--navy);
+            color: white;
+        }
+
+        .ai-section .section-label {
+            color: var(--cyan);
+        }
+
+        .ai-section .section-intro {
+            color: #b6c9ca;
+        }
+
+        .ai-card {
+            background: #122f34;
+            border: 1px solid rgba(97, 212, 209, 0.15);
+            color: white;
+        }
+
+        .ai-card .innovation-content > p {
+            color: #b6c9ca;
+        }
+
+        .ai-card .info-box {
+            background: #193b40;
+        }
+
+        .ai-card .info-box strong {
+            color: white;
+        }
+
+        .ai-card .info-box span {
+            color: #b6c9ca;
+        }
+
+        /* =========================================================
+           HUMAN QUESTION
+        ========================================================= */
+
+        .question {
+            background: white;
+            text-align: center;
+        }
+
+        .question h2 {
+            font-size: clamp(2.3rem, 5vw, 5rem);
+            max-width: 900px;
+            margin: auto;
+            line-height: 1;
+        }
+
+        .question h2 span {
+            color: var(--teal);
+        }
+
+        .question p {
+            max-width: 650px;
+            margin: 25px auto 0;
+            color: var(--grey);
+        }
+
+        /* =========================================================
+           VOCABULARY
+        ========================================================= */
+
+        .vocabulary {
+            background: #edf3f3;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .word {
+            background: white;
+            padding: 22px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .word strong {
+            display: block;
+            color: var(--teal);
+            margin-bottom: 5px;
+        }
+
+        .word span {
+            color: var(--grey);
+            font-size: 0.85rem;
+        }
+
+        /* =========================================================
+           CONCLUSION
+        ========================================================= */
+
+        .conclusion {
+            background: var(--teal);
+            color: white;
+            text-align: center;
+        }
+
+        .conclusion h2 {
+            font-size: clamp(2.3rem, 5vw, 4.5rem);
+            max-width: 850px;
+            margin: auto;
+            line-height: 1.05;
+        }
+
+        .conclusion p {
+            max-width: 700px;
+            margin: 25px auto 0;
+            color: #d6eeee;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #07171a;
+            color: #91a5a7;
+            padding: 30px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 0.8rem;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .context-grid,
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vocab-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .innovation-content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .hero {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .vocab-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+
+<nav>
+
+    <a href="#" class="logo">
+        MEDI<span>Æ</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="#innovations">Innovations</a></li>
+        <li><a href="#impact">Impact humain</a></li>
+        <li><a href="#vocabulaire">Vocabulaire</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Technologie × Médecine × Société
+        </div>
+
+        <h1>
+            La médecine<br>
+            de <span>demain.</span>
+        </h1>
+
+        <p>
+            Les nouvelles technologies transforment notre manière
+            de prévenir, de diagnostiquer et de traiter les maladies.
+            Mais jusqu'où devons-nous aller ?
+        </p>
+
+        <a href="#innovations" class="hero-button">
+            Explorer les innovations →
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- ============================================================
+     CONTEXT
+============================================================ -->
+
+<section class="context">
+
+    <div class="section-label">
+        01 — Contexte
+    </div>
+
+    <div class="context-grid">
+
+        <div>
+
+            <h2 class="section-title">
+                Quand la technologie entre dans l'hôpital
+            </h2>
+
+            <p class="section-intro">
+                L'intelligence artificielle, les robots et les
+                technologies numériques deviennent progressivement
+                des outils importants dans le domaine médical.
+            </p>
+
+        </div>
+
+        <div class="context-text">
+
+            <p>
+                Aujourd'hui, les médecins utilisent de nouvelles
+                technologies pour améliorer les soins et prendre
+                des décisions plus précises.
+            </p>
+
+            <p>
+                Ces innovations peuvent sauver des vies, faciliter
+                le travail des professionnels de santé et permettre
+                une détection plus rapide de certaines maladies.
+            </p>
+
+            <div class="quote">
+                « La technologie peut aider le médecin,
+                mais elle ne remplace pas complètement l'être humain. »
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============================================================
+     INNOVATIONS
+============================================================ -->
+
+<section class="innovation" id="innovations">
+
+    <div class="section-label">
+        02 — Innovations
+    </div>
+
+    <h2 class="section-title">
+        Deux technologies qui changent la médecine
+    </h2>
+
+    <p class="section-intro">
+        Voici deux exemples de technologies médicales modernes
+        qui montrent comment l'innovation peut transformer
+        notre rapport à la santé.
+    </p>
+
+
+    <!-- ========================================================
+         INNOVATION 01
+    ======================================================== -->
+
+    <article class="innovation-card">
+
+       <div class="innovation-image">
+
+    <img src="robo doc.jpg"
+         alt="Robot chirurgical utilisé pendant une opération"
+         style="width:100%; height:380px; object-fit:cover;">
+
+</div>
+
+
+        <div class="innovation-content">
+
+            <span class="number">
+                INNOVATION 01
+            </span>
+
+            <h3>
+                La chirurgie robotique
+            </h3>
+
+            <p>
+                La chirurgie robotique utilise des systèmes
+                technologiques contrôlés par un chirurgien.
+                Le robot permet de réaliser certains mouvements
+                avec une grande précision. Il ne prend donc pas
+                seul les décisions médicales : le médecin reste
+                au centre de l'opération.
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-box">
+                    <strong>Technologie</strong>
+                    <span>Robotique médicale</span>
+                </div>
+
+                <div class="info-box">
+                    <strong>Objectif</strong>
+                    <span>Améliorer la précision</span>
+                </div>
+
+                <div class="info-box">
+                    <strong>Acteur humain</strong>
+                    <span>Le chirurgien</span>
+                </div>
+
+            </div>
+
+
+            <h4 class="impact-title">
+                Quel est l'impact sur l'être humain ?
+            </h4>
+
+
+            <div class="impact-grid">
+
+                <div class="impact positive">
+
+                    <h4>Avantages</h4>
+
+                    <ul>
+                        <li>Une grande précision pendant certaines opérations.</li>
+                        <li>Des mouvements plus contrôlés.</li>
+                        <li>Une technologie qui peut faciliter le travail du chirurgien.</li>
+                        <li>Une évolution des techniques médicales.</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="impact negative">
+
+                    <h4>Limites et risques</h4>
+
+                    <ul>
+                        <li>Le coût de certains systèmes est très élevé.</li>
+                        <li>Les professionnels doivent être spécialement formés.</li>
+                        <li>La technologie peut créer une dépendance aux machines.</li>
+                        <li>Une panne technique peut poser des problèmes.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- ========================================================
+         INNOVATION 02 — AI
+    ======================================================== -->
+
+    <article class="innovation-card ai-card" id="impact">
+
+        <div class="innovation-image">
+
+    <img src="ai.png"
+         alt="Intelligence artificielle utilisée pour analyser une image médicale"
+         style="width:100%; height:380px; object-fit:cover;">
+
+</div>
+
+
+        <div class="innovation-content">
+
+            <span class="number">
+                INNOVATION 02
+            </span>
+
+            <h3>
+                L'intelligence artificielle au service du diagnostic
+            </h3>
+
+            <p>
+                L'intelligence artificielle peut analyser de grandes
+                quantités de données médicales, comme certaines images
+                médicales. Elle peut aider les professionnels à
+                identifier des signes qui nécessitent une attention
+                particulière.
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-box">
+                    <strong>Technologie</strong>
+                    <span>Intelligence artificielle</span>
+                </div>
+
+                <div class="info-box">
+                    <strong>Données</strong>
+                    <span>Images et informations médicales</span>
+                </div>
+
+                <div class="info-box">
+                    <strong>Objectif</strong>
+                    <span>Aider au diagnostic</span>
+                </div>
+
+            </div>
+
+
+            <h4 class="impact-title">
+                Quel est l'impact sur l'être humain ?
+            </h4>
+
+
+            <div class="impact-grid">
+
+                <div class="impact positive">
+
+                    <h4>Avantages</h4>
+
+                    <ul>
+                        <li>Une analyse rapide de grandes quantités de données.</li>
+                        <li>Une aide pour détecter certaines anomalies.</li>
+                        <li>Un soutien pour les professionnels de santé.</li>
+                        <li>La possibilité d'améliorer certains diagnostics.</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="impact negative">
+
+                    <h4>Limites et risques</h4>
+
+                    <ul>
+                        <li>Les résultats d'une IA ne sont pas toujours parfaits.</li>
+                        <li>La protection des données personnelles est importante.</li>
+                        <li>Un algorithme peut reproduire certains biais présents dans ses données.</li>
+                        <li>Le médecin doit vérifier et interpréter les résultats.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- ============================================================
+     HUMAN QUESTION
+============================================================ -->
+
+<section class="question">
+
+    <div class="section-label">
+        03 — Réflexion
+    </div>
+
+    <h2>
+        Une médecine plus technologique...
+        <span>mais plus humaine ?</span>
+    </h2>
+
+    <p>
+        Les innovations médicales offrent de nouvelles possibilités,
+        mais elles posent aussi des questions éthiques et sociales.
+        La technologie doit-elle toujours remplacer les méthodes
+        traditionnelles ?
+    </p>
+
+</section>
+
+
+<!-- ============================================================
+     VOCABULARY
+============================================================ -->
+
+<section class="vocabulary" id="vocabulaire">
+
+    <div class="section-label">
+        04 — Vocabulaire
+    </div>
+
+    <h2 class="section-title">
+        Lexique
+    </h2>
+
+    <p class="section-intro">
+        Quelques mots utiles pour parler de l'innovation,
+        des médias et de l'impact des nouvelles technologies.
+    </p>
+
+
+    <div class="vocab-grid">
+
+        <div class="vocab-grid">
+
+    <div class="word">
+        <strong>La chirurgie assistée par robot</strong>
+        <span>Robot-assisted surgery</span>
+    </div>
+
+    <div class="word">
+        <strong>Un dispositif médical</strong>
+        <span>Medical device</span>
+    </div>
+
+    <div class="word">
+        <strong>L’aide à la décision clinique</strong>
+        <span>Clinical decision support</span>
+    </div>
+
+    <div class="word">
+        <strong>Un algorithme d’apprentissage</strong>
+        <span>Learning algorithm</span>
+    </div>
+
+    <div class="word">
+        <strong>L’apprentissage automatique</strong>
+        <span>Machine learning</span>
+    </div>
+
+    <div class="word">
+        <strong>Les données biomédicales</strong>
+        <span>Biomedical data</span>
+    </div>
+
+    <div class="word">
+        <strong>La télémédecine</strong>
+        <span>Telemedicine</span>
+    </div>
+
+    <div class="word">
+        <strong>La fiabilité d’un diagnostic</strong>
+        <span>Reliability of a diagnosis</span>
+    </div>
+
+    <div class="word">
+        <strong>L’éthique médicale</strong>
+        <span>Medical ethics</span>
+    </div>
+
+    <div class="word">
+        <strong>La confidentialité des données</strong>
+        <span>Data confidentiality</span>
+    </div>
+
+    <div class="word">
+        <strong>La détection précoce</strong>
+        <span>Early detection</span>
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ============================================================
+     CONCLUSION
+============================================================ -->
+
+<section class="conclusion">
+
+    <h2>
+        La technologie évolue.
+        Notre responsabilité aussi.
+    </h2>
+
+    <p>
+        Les nouvelles technologies peuvent améliorer notre santé,
+        mais leur utilisation doit rester responsable, éthique
+        et centrée sur l'être humain.
+    </p>
+
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+
+<footer>
+
+    <div>
+        <strong>MEDIÆ</strong> — Technologie & Médecine
+    </div>
+
+    <div>
+        Projet STEAM · Français
+    </div>
+
+</footer>
+
+
+</body>
+</html>
